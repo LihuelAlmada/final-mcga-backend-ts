@@ -6,13 +6,13 @@ import config from './config';
     const mongooseOptions: ConnectionOptions = {
         useNewUrlParser : true,
         useUnifiedTopology : true,
-        user: config.MONGO_USER,
-        pass: config.MONGO_PASSWORD
+        //user: config.MONGO_USER,
+        //pass: config.MONGO_PASSWORD
     }
     const db = await mongoose.connect(`mongodb://${config.MONGO_HOST}/${config.MONGO_DATABASE}`, mongooseOptions);
     console.log('Database is connected to:', db.connection.name)
-    } catch (err){
-        console.error(err)
+    } catch (error){
+        console.error(error)
     }
 
 })()
