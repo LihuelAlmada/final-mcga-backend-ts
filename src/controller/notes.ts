@@ -1,5 +1,5 @@
 import {RequestHandler} from 'express';
-import Note from './Note';
+import Note from '../model/Note';
 //manipulate dates
 export const createNote: RequestHandler = async (req,res) => {
     const note = new Note(req.body);

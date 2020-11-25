@@ -1,6 +1,6 @@
 import {Router} from 'express';
 const router = Router();
-import * as noteController from './notes.controller';
+import * as noteController from '../controller/notes';
 //define URL
 router.post('/notes', noteController.createNote);
 router.get('/notes', noteController.getNotes);

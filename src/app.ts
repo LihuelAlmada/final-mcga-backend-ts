@@ -2,8 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import config from './config';
-import noteRoutes from './routes/notes.routes';
-import userRoutes from './routes/users.routes'
+import noteRoutes from './routes/notes';
+import userRoutes from './routes/users'
 const app = express();
 
 app.set('port', config.PORT);
