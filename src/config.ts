@@ -9,3 +9,4 @@ export default{
     MONGO_HOST: process.env.MONGO_HOST || '@cluster-ts.aqydr.mongodb.net',
     PORT: process.env.PORT || 5000
 }
+//mongodb+srv://German:1234@cluster-ts.aqydr.mongodb.net/mcga-ts?retryWrites=true&w=majority
