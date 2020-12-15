@@ -23,7 +23,6 @@ passport.use(authMiddleware);
 ///////////////////////////////////////////////
 
 app.use(noteRoutes);
-//app.use(userRoutes);
 app.use(authRoutes);
 app.use(privateRoutes);
 export default app;
