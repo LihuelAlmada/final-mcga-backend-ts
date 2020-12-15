@@ -8,17 +8,15 @@ const userSchema = new Schema({
         required: true,
         trim: true
     },
-    password: String,
-    firstName: String,
-    lastName: String,
-    email: String,
-
-    birthday: {
-        type: Date,
-        default: new Date()
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    city: String,
-    phoneNumber: Number,
+    password: {
+        type: String,
+        required: true
+    },
 })
 
 export default model('User', userSchema);

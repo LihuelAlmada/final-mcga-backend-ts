@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import config from './config';
 import noteRoutes from './routes/notes';
-import userRoutes from './routes/users'
+import userRoutes from './routes/users';
 const app = express();
 
 app.set('port', config.PORT);
