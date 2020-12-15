@@ -2,8 +2,10 @@ import {Schema, model, Document} from 'mongoose';
 import bcrypt from "bcrypt";
 //model without ID
 export interface IUser extends Document {
+    userName: string;
     email: string;
     password: string;
+    comparePassword: (password: string) => Promise<Boolean>
 };
 const userSchema = new Schema({
     userName: {
