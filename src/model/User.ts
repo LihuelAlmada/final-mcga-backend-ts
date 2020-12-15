@@ -1,6 +1,10 @@
-import {Schema, model} from 'mongoose';
+import {Schema, model, Document} from 'mongoose';
+import bcrypt from "bcrypt";
 //model without ID
-
+export interface IUser extends Document {
+    email: string;
+    password: string;
+};
 const userSchema = new Schema({
     userName: {
         type: String,
@@ -18,5 +22,19 @@ const userSchema = new Schema({
         required: true
     },
 })
-
-export default model('User', userSchema);
+//pre save date
+userSchema.pre<IUser>("save", async function(next) {
+    const user = this;
+    if (!user.isModified("password")) return next();
+    //Salt is a string to cifrate the pass
+    const salt = await bcrypt.genSalt(10);
+    //Hash is the cifrate pass
+    const hash = await bcrypt.hash(user.password, salt);
+    user.password = hash;
+    next();
+});
+//compare
+userSchema.methods.comparePassword = async function(password: string): Promise<Boolean> {
+    return await bcrypt.compare(password, this.password);
+};
+export default model<IUser>('User', userSchema);
