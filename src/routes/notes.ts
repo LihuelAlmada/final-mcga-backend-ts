@@ -9,12 +9,8 @@ router.post(
     passport.authenticate("jwt", { session: false }),
     noteController.createNote
 );
-router.get(
-    "/notes",
-    //the Strategy in Auth mddleware is "jwt" for default
-    passport.authenticate("jwt", { session: false }),
-    noteController.getNotes
-);  
+router.get("/notes", noteController.getNotes);  
+
 router.get(
     "/notes/:id",
     //the Strategy in Auth mddleware is "jwt" for default
