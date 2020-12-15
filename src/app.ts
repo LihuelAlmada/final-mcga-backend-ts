@@ -4,6 +4,7 @@ import cors from 'cors';
 import config from './config';
 import noteRoutes from './routes/notes';
 import userRoutes from './routes/users';
+import authRoutes from './routes/auth';
 const app = express();
 
 app.set('port', config.PORT);
@@ -15,5 +16,6 @@ app.use(express.json());
 //for express can read post request from a form
 app.use(express.urlencoded({extended: false}));
 app.use(noteRoutes);
-app.use(userRoutes);
+//app.use(userRoutes);
+app.use(authRoutes);
 export default app;
