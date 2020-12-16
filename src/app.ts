@@ -5,8 +5,7 @@ import config from './config';
 import noteRoutes from './routes/notes';
 import privateRoutes from './routes/private';
 import authRoutes from './routes/auth';
-import passport from 'passport';
-import authMiddleware from './middleware/auth';
+//import passport from 'passport';
 const app = express();
 
 app.set('port', config.PORT);
@@ -18,11 +17,13 @@ app.use(cors());
 app.use(express.json());
 //for express can read post request from a form
 app.use(express.urlencoded({extended: false}));
-app.use(passport.initialize());
-passport.use(authMiddleware);
+//app.use(passport.initialize());
+//passport.use(authMiddleware);
 ///////////////////////////////////////////////
 
 app.use(noteRoutes);
 app.use(authRoutes);
 app.use(privateRoutes);
 export default app;
+
+//auth0
