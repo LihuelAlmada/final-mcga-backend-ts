@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 import User, {IUser} from '../model/User'
 import jwt from "jsonwebtoken";
 import config from '../config'
@@ -25,7 +25,8 @@ export const signUp = async (
     await newUser.save();
     return res.status(201).json(newUser);
 };
-export const signIn = async(req: Request,res: Response): Promise<Response>=>{
+
+export const signIn = async(req: Request,res: Response): Promise<Response>=> {
   if (!req.body.email || !req.body.password|| !req.body.userName) {
     return res.status(400).json({ msg: "Please. Send your email and password" });
   }
@@ -35,7 +36,7 @@ export const signIn = async(req: Request,res: Response): Promise<Response>=>{
     return res.status(400).json({ msg: "The User does not exist" });
   }
   const isMatch = await user.comparePassword(req.body.password)
-  if(isMatch){
+  if(isMatch) {
     return res.status(200).json({token:createToken(user)})
   }
   return res.status(400).json({
