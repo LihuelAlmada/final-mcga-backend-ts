@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { send } from 'process';
 const router = Router();
 import * as noteController from '../controller/notes';
 import { TokenValidation } from '../middleware/auth';
@@ -25,5 +26,5 @@ router.put(
     TokenValidation,
     noteController.updateNotes
 ); 
-router.get('/', noteController.getNote);
+router.get('/', noteController.init);
 export default router
