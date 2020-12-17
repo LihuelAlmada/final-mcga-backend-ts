@@ -26,5 +26,5 @@ router.put(
     TokenValidation,
     noteController.updateNotes
 ); 
-router.get('/', noteController.init);
+//router.get('/', noteController.init);
 export default router

@@ -29,6 +29,6 @@ export const updateNotes: RequestHandler = async (req,res) => {
     if(!noteUpdated) return res.status(204).json();
     res.json(noteUpdated);
 }
-export const init : RequestHandler = (req,res) => {
+/*export const init : RequestHandler = (req,res) => {
     return res.status(204).json('Welcome');
-}
+}*/
