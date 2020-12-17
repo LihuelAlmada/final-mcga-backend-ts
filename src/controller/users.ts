@@ -13,7 +13,7 @@ export const signUp = async (
     res: Response
   ): Promise<Response> => {
     if (!req.body.email || !req.body.password|| !req.body.userName) {
-      return res.status(400).json({ msg: "Please. Send your email and password" });
+      return res.status(400).json({ msg: "Please. Send your email, user name and password" });
     }
   
     const user = await User.findOne({ email: req.body.email });
@@ -23,12 +23,12 @@ export const signUp = async (
   
     const newUser = new User(req.body);
     await newUser.save();
-    return res.status(201).json(newUser);
+    return res.status(201).json({token:createToken(newUser),user: newUser})
 };
 
 export const signIn = async(req: Request,res: Response): Promise<Response>=> {
   if (!req.body.email || !req.body.password|| !req.body.userName) {
-    return res.status(400).json({ msg: "Please. Send your email and password" });
+    return res.status(400).json({ msg: "Please. Send your email, user name and password" });
   }
 
   const user = await User.findOne({ email: req.body.email });
