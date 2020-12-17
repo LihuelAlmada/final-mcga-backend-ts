@@ -5,6 +5,7 @@ import config from './config';
 import noteRoutes from './routes/notes';
 import privateRoutes from './routes/private';
 import authRoutes from './routes/auth';
+import jwt from 'jsonwebtoken';
 
 const app = express();
 
